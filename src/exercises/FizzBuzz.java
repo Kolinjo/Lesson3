@@ -1,5 +1,7 @@
 package exercises;
 
+import javax.swing.JOptionPane;
+
 /**
  * Fizz Buzz
  * 
@@ -16,6 +18,34 @@ package exercises;
  **/
 
 public class FizzBuzz {
-	
 
+	public static void main(String[] args) {
+
+		// asking user a question
+		String question = JOptionPane.showInputDialog("Do you want to play a little game? (Yes or No)");
+
+		// going into if - else stage
+		if (question.equalsIgnoreCase("Yes")) {
+			String enteredNumber = JOptionPane.showInputDialog("Enter one number in range from 1 to 20.");
+			// changing string in integer
+			int enteredNumberAsInt = Integer.parseInt(enteredNumber);
+			// main if - else stage 
+			if (enteredNumberAsInt % 3 == 0 && enteredNumberAsInt % 5 == 0) {
+				JOptionPane.showMessageDialog(null, "FizzBuzz");
+			} else if (enteredNumberAsInt % 3 == 0) {
+				JOptionPane.showMessageDialog(null, "Fizz");
+			} else if (enteredNumberAsInt % 5 == 0) {
+				JOptionPane.showMessageDialog(null, "Buzz");
+			}else {
+				JOptionPane.showMessageDialog(null, enteredNumberAsInt + " isn't Fizz nor Buzz");
+			}
+			
+		} else if (question.equalsIgnoreCase("No")) {
+			JOptionPane.showMessageDialog(null, "Be a child, play a game!");
+
+		} else {
+			JOptionPane.showMessageDialog(null, "Incorrect input.");
+		}
+
+	}
 }
