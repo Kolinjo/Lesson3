@@ -1,22 +1,79 @@
 package optional;
 
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 import org.jointheleague.graphical.robot.Robot;
 
 public class RobotColorChooser {
 	public static void main(String[] args) {
 
-		// 3. ask the user what color they would like the tortoise to draw
+		Robot robot = new Robot();
 
-		// 4. use an if/else statement to set the pen color that the user requested
+		robot.penDown();
+		robot.setSpeed(10);
 
-		// 5. if the user doesn’t enter anything, choose a random color
+		//making a square shape
+		for (int j = 0; j < 4; j++) 
+		{
+			robot.setPenWidth(10);
+			robot.setRandomPenColor();
+			robot.move(50);
+			robot.turn(90);
+		}
 
-		// 6. put a loop around your code so that you keep asking the user for more colors & drawing them
+		robot.turn(-30);
+		
+		
+		for (int i = 0; i < 2; i++)
+		{
 
-		// 2. set the pen width to 10
+			String answerColor = JOptionPane
+					.showInputDialog("What color would you like the robot to draw(red/green/blue)??");
 
-		// 1. make the robot draw a shape (this will take more than one line of code)
+			if (answerColor.equals("red")) {
+				robot.setPenColor(255, 0, 0);
+			} else if (answerColor.equals("green")) {
+				robot.setPenColor(0, 255, 0);
+			} else if (answerColor.equals("blue")) {
+				robot.setPenColor(0, 0, 255);
+			} else {
+				robot.setRandomPenColor();
+			}
+			
+			//making a hexagon shape
+			for (int j = 0; j < 6; j++) 
+			{
+				robot.setPenWidth(20);
+				robot.move(60);
+				robot.turn(60);
+			}
+
+			robot.move(8);
+
+		}
+
+		String answerColor = JOptionPane
+				.showInputDialog("What color would you like the robot to draw(red/green/blue)??");
+
+		if (answerColor.equals("red")) {
+			robot.setPenColor(255, 0, 0);
+		} else if (answerColor.equals("green")) {
+			robot.setPenColor(0, 255, 0);
+		} else if (answerColor.equals("blue")) {
+			robot.setPenColor(0, 0, 255);
+		} else {
+			robot.setRandomPenColor();
+
+		}
+		robot.move(-5);
+
+		//making a bigger hexagon
+		for (int j = 0; j < 6; j++) {
+			robot.setPenWidth(20);
+			robot.move(70);
+			robot.turn(60);
+		}
 
 	}
 }
